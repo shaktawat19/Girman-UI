@@ -1,0 +1,138 @@
+/* SearchResults.css */
+.search-results {
+  width: 100%;
+  padding: 20px;
+  position: relative;
+  min-height: 90vh;
+  background: linear-gradient(to bottom, white, rgba(135, 206, 235, 0.7)),
+    url("/bgImage.png") no-repeat center center/cover;
+}
+
+.card-container {
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.user-card {
+  /* width: 40%; */
+  margin: 0px 10px 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-card img {
+  width: 100%;
+  height: auto;
+  /* border-radius: 50%; */
+}
+
+.user-card .available {
+  font-size: 14px;
+  color: #afafaf;
+}
+
+.user-card button {
+  margin-top: 10px;
+  padding: 10px 10px;
+  background-color: #18181b;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 8px;
+}
+.card-top {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.card-top .name {
+  font-size: 32px;
+  color: #000;
+}
+
+.card-bottom {
+  padding-top: 20px;
+  display: flex;
+  gap: 20px;
+  /* justify-content: space-between; */
+}
+.card-bottom .details {
+  padding-top: 10px;
+}
+.contact-icon,
+.location-icon {
+  font-size: 10px;
+  margin-right: 10px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  text-align: left;
+  position: relative;
+}
+
+.headings {
+  padding: 0;
+  margin: 0;
+}
+
+.close-button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #fff;
+  border: 1px solid grey;
+  border-radius: 5px;
+  cursor: pointer;
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+}
+
+.blur-background .card-container {
+  filter: opacity(0.8);
+}
+
+.error-message {
+  color: red;
+  font-size: 18px;
+}
+
+.empty-state {
+  font-size: 16px;
+  text-align: center;
+  color: gray;
+}
+.empty-state img {
+  max-width: 40%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    width: 100%;
+  }
+}

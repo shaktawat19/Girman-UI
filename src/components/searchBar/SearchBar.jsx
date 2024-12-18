@@ -21,7 +21,7 @@ const SearchBar = (props) => {
   return (
     <div
       className="search-bar-container"
-      style={props?.isSearchBar ? { margin: "1.2rem auto" } : {}}
+      style={props?.isSearchResults ? { margin: "1.2rem auto" } : {}}
     >
       <input
         type="text"
