@@ -3,14 +3,16 @@ import { useLocation } from "react-router-dom";
 import "./SearchResults.css";
 import Navbar from "../../components/navbar/Navbar";
 import SearchBar from "../../components/searchBar/SearchBar";
+import { Modal } from "../../components/Modal/Modal";
 import { data } from "../../utils/data";
+import { Button } from "../../components/ui/button";
 
 const SearchResults = () => {
   const [filteredUsers, setFilteredUsers] = useState(data);
   const [loading, setLoading] = useState(false);
-  const location = useLocation(); // Get the current location (URL)
+  const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
-  const searchTerm = queryParams.get("q"); // Get the search query parameter
+  const searchTerm = queryParams.get("q");
   const [showModal, setShowModal] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
 
@@ -43,7 +45,6 @@ const SearchResults = () => {
     <>
       <Navbar searchResultPage={true} />
       <SearchBar isSearchResults={true} />
-      {/* Show only on mobile */}
       <div className={`search-results ${showModal ? "blur-background" : ""}`}>
         {loading && <p>Loading...</p>}
         {filteredUsers.length === 0 && !loading ? (
@@ -63,14 +64,12 @@ const SearchResults = () => {
                     <span>{user.city}</span>
                   </span>
                 </div>
-
                 <div className="card-bottom">
                   <div className="details">
                     <i className="fas fa-phone contact-icon"></i>
                     <span>{user.contact_number}</span> <br />
                     <span className="available">Available on phone</span>
                   </div>
-
                   <div className="fetch-btn-container">
                     <button onClick={() => handleFetchDetails(user)}>
                       Fetch Details
@@ -82,36 +81,36 @@ const SearchResults = () => {
           </div>
         )}
 
-        {/* Modal */}
-        {showModal && selectedUser && (
-          <div className="modal">
-            <div className="modal-content">
-              <h2>Fetch Details</h2>
-              <p>Here are the details of the following employee.</p>
-              <p className="headings">
+        {/* Shadcn Modal */}
+        <Modal
+          isOpen={showModal}
+          onClose={handleCloseModal}
+          title="Fetch Details"
+          description="Here are the details of the following employee."
+        >
+          {selectedUser && (
+            <>
+              <p className="mt-2">
                 <strong>Name:</strong> {selectedUser.first_name}{" "}
                 {selectedUser.last_name}
               </p>
-              <p className="headings">
+              <p className="">
                 <strong>Location:</strong> {selectedUser.city}
               </p>
-              <p className="headings">
+              <p className="">
                 <strong>Contact Number:</strong> {selectedUser.contact_number}
               </p>
-              <p>
+              <p className="mt-2">
                 <strong>Profile Image:</strong>
               </p>
               <img
                 src="popupImg.png"
                 alt="Profile"
-                style={{ width: "100px", height: "100px" }}
+                className="mt-2 w-24 h-24"
               />
-              <button onClick={handleCloseModal} className="close-button">
-                Close
-              </button>
-            </div>
-          </div>
-        )}
+            </>
+          )}
+        </Modal>
       </div>
     </>
   );
