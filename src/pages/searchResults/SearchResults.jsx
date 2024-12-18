@@ -5,7 +5,6 @@ import Navbar from "../../components/navbar/Navbar";
 import SearchBar from "../../components/searchBar/SearchBar";
 import { Modal } from "../../components/Modal/Modal";
 import { data } from "../../utils/data";
-import { Button } from "../../components/ui/button";
 
 const SearchResults = () => {
   const [filteredUsers, setFilteredUsers] = useState(data);
