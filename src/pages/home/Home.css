@@ -1,0 +1,36 @@
+.home-container {
+  height: 100vh;
+  background: linear-gradient(to bottom, white, rgba(135, 206, 235, 0.7)),
+    url("/bgImage.png") no-repeat center center/cover;
+}
+.mid-section {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60vw;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+}
+
+.home-logo-container {
+  display: flex;
+  margin-top: -200px;
+}
+
+.home-logo-container .logo {
+  width: 100px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.home-logo-container .girman {
+  font-weight: bold;
+  font-size: 100px;
+  margin: 0;
+  color: #111111;
+}
